@@ -86,8 +86,9 @@ impl Board {
 fn main() {
     let mut board = Board::new();
     let mut someone_won = false;
+    let mut turn = 0;
 
-    for turn in 0..9 {
+    while turn < 9 {
         board.print();
         let win_state = board.get_winner();
         if win_state == 1 {
@@ -119,6 +120,8 @@ fn main() {
                 continue;
             }
         }
+
+        turn += 1;
     }
 
     if !someone_won {
